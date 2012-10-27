@@ -1,0 +1,29 @@
+<?php
+$template =
+'<article class="post">
+  <h2>%s</h2>
+  <time>%s</time>
+   <a %s class="blog-edit hide" href="/posts/edit/%s">Edit</a>
+   <a %s class="blog-delete hide" href="/posts/delete/%s">Delete</a>
+  <p>%s</p>
+  <a href="/posts/view/%s" class="read-more">Read More</a>
+  <p>Posted By: <a href="%s" rel="author">%s</a></p>
+</article>';
+
+if (is_array(Zend_Registry::get('author'))) {
+  $show = 'style="display: block;"';
+} else {
+  $show = '';
+}
+
+foreach ($this->Posts as $post) {
+  printf($template, 
+         $post['title'], $post['created'], $show, $post['slug'], 
+         $show, $post['id'], $post['content'], 
+         $post['slug'], $post['author_id'], $post['author']['first_name']);
+}
+
+if (is_array(Zend_Registry::get('author'))) {
+  echo '<a id="front" class="btn" href="/posts/add">Create Post</a>';
+}
+?>

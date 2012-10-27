@@ -1,0 +1,29 @@
+<?php
+$postTemplate =
+'<article class="post">
+  <h2>%s</h2>
+  <time>%s</time>
+  <p>%s</p>
+  <a href="/authors/view/%s" rel="author">%s</a>
+</article>';
+
+$commentTemplate = 
+'<section>
+  <a href="/authors/view/%s">%s</a>
+  <p>%s</p>
+</section>';
+
+$post = $this->Post;
+printf($postTemplate, 
+       $post['title'], $post['created'], $post['content'], 
+       $post['author_id'], $post['author']['first_name']);
+
+echo '<div class="comments">';
+echo '<h3>Comments:</h3>';
+foreach ($post['comments'] as $comment) {
+  printf($commentTemplate, 
+         $comment['author_id'], $comment['author']['first_name'], $comment['body']);
+}
+echo '</div>';
+echo '<a href="/comments/add/' . $post['id'] . '" class="btn">Add a Comment</a>'
+?>

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML> 
+<html lang='en'>
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <title>Ten_blog demo </title>
+      <link rel="stylesheet" href=/css/bootstrap.min.css" type="text/css" media="screen" charset="utf-8">
+      <link rel="stylesheet" href="/css/styles.css" type="text/css" media="screen" charset="utf-8">
+   </head>
+   <body>
+      <!--// Topbar -->
+
+      <div class="topbar">
+         <div class="fill">
+
+            <div class="container">
+               <a class="brand" href="/">Ten_blog</a>
+               <form action="/authors/login" class="pull-right" method="post" accept-charset="utf-8">
+                  <input type="text" name="first_name" class="input-small" placeholder="First Name"/>
+                  <input type="text" name="last_name" class="input-small" placeholder="Last Name" />
+
+
+                  <button class="btn" type="submit">Sign In</button>
+
+
+               </form>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <div class="content">
+            <?= $this->layout()->content; ?>
+
+         </div>
+         <footer>
+         <p>© Copyright 2012 ziikii All Rights Reserved.</p> 
+         </footer>
+
+      </div>
+   </body>
+</html>

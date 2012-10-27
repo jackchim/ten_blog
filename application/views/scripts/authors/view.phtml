@@ -1,0 +1,17 @@
+<?php
+$template = 
+'<div class="author">
+  <h2>Bio</h2>
+  <span>%s %s</span>
+  <a href="mailto:%s">%s</a>
+  <p class="number-of-posts">Number of Posts: %s</p>
+  <p>Website: <a href="http://%s">%s</a></p>
+  <p>Role: %s</p>
+</div>';
+
+$auth = $this->Author;
+printf($template,
+       $auth['first_name'], $auth['last_name'], $auth['email'], $auth['email'],
+       $auth['number_of_posts'], $auth['website'], $auth['website'], $auth['role']);
+
+
